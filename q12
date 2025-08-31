@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    int n1, n2, i;
+    printf("enter size of first array: ");
+    scanf("%d", &n1);
+    printf("enter size of second array: ");
+    scanf("%d", &n2);
+    float a[n1], b[n2], c[n1+n2];
+    printf("enter %d elements of first array:\n", n1);
+    for (i = 0; i < n1; i++) {
+        scanf("%f", &a[i]);
+        c[i] = a[i];
+    }
+    printf("enter %d elements of second array:\n", n2);
+    for (i = 0; i < n2; i++) {
+        scanf("%f", &b[i]);
+        c[n1+i] = b[i];
+    }
+    printf("merged array in reverse order:\n");
+    for (i = n1+n2-1; i >= 0; i--) {
+        printf("%.2f ", c[i]);
+    }
+    printf("\n");
+    return 0;
+}
