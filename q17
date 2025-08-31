@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main() {
+    int n, i, j, sum = 0;
+    printf("enter size of square matrix (n): ");
+    scanf("%d", &n);
+    int a[n][n];
+    printf("enter elements of %dx%d matrix:\n", n, n);
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\nmatrix is:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    // sum of elements below main diagonal (i > j)
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < i; j++) {
+            sum += a[i][j];
+        }
+    }
+    printf("\nsum of elements below main diagonal = %d\n", sum);
+    return 0;
+}
