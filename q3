@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main() {
+    int n, i, temp;
+    printf("enter the size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("array before interchange:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    // interchange second and second last
+    if (n>2) {
+        temp = arr[1];
+        arr[1] = arr[n-2];
+        arr[n-2] = temp;
+    }
+    printf("\narray after interchange:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
