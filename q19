@@ -1,0 +1,34 @@
+#include <stdio.h>
+int isLowerTriangular(int a[][20], int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) { 
+            if (a[i][j] != 0)
+                return 0; 
+        }
+    }
+    return 1;
+}
+int main() {
+    int n, i, j;
+    printf("enter size of square matrix (n): ");
+    scanf("%d", &n);
+    int a[20][20];
+    printf("enter elements of %dx%d matrix:\n", n, n);
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\nmatrix is:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    if (isLowerTriangular(a, n))
+        printf("\nthis is a lower triangular matrix\n");
+    else
+        printf("\nthis is not a lower triangular matrix\n");
+    return 0;
+}
