@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main() {
+    int m, n, i, j, sum = 0;
+    float mean;
+    printf("enter number of rows: ");
+    scanf("%d", &m);
+    printf("enter number of columns: ");
+    scanf("%d", &n);
+    int arr[m][n];
+    printf("enter elements of the array:\n");
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+            sum += arr[i][j];
+        }
+    }
+    mean = (float)sum / (m * n);
+    printf("sum of elements = %d\n", sum);
+    printf("mean of elements = %.2f\n", mean);
+    return 0;
+}
