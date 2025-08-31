@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <limits.h>
+int main() {
+    int n, i;
+    printf("enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    // find smallest and second smallest
+    int min1 = INT_MAX, min2 = INT_MAX;
+    int min2_index = -1;
+    for (i = 0; i < n; i++) {
+        if (arr[i] < min1) {
+            min2 = min1;
+            min1 = arr[i];
+        } else if (arr[i] < min2 && arr[i] != min1) {
+            min2 = arr[i];
+            min2_index = i;
+        }
+    }
+    // find largest and second largest
+    int max1 = INT_MIN, max2 = INT_MIN;
+    int max2_index = -1;
+    for (i = 0; i < n; i++) {
+        if (arr[i] > max1) {
+            max2 = max1;
+            max1 = arr[i];
+        } else if (arr[i] > max2 && arr[i] != max1) {
+            max2 = arr[i];
+            max2_index = i;
+        }
+    }
+    if (min2_index == -1 || max2_index == -1) {
+        printf("not enough distinct elements to swap second biggest and second smallest\n");
+        return 0;
+    }
+    // swap using pointers
+    int *p1 = &arr[min2_index];
+    int *p2 = &arr[max2_index];
+    int temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+    printf("array after swapping second smallest and second biggest:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
