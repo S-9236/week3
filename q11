@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main() {
+    int m, n, i, j;
+    int even[100], odd[100];
+    int eCount = 0, oCount = 0;
+
+    printf("enter number of rows: ");
+    scanf("%d", &m);
+    printf("enter number of columns: ");
+    scanf("%d", &n);
+    int arr[m][n];
+
+    printf("enter elements of the %dx%d array:\n", m, n);
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+            if (arr[i][j] % 2 == 0)
+                even[eCount++] = arr[i][j];
+            else
+                odd[oCount++] = arr[i][j];
+        }
+    }
+    printf("even elements:\n");
+    for (i = 0; i < eCount; i++) {
+        printf("%d ", even[i]);
+    }
+    printf("\nodd elements:\n");
+    for (i = 0; i < oCount; i++) {
+        printf("%d ", odd[i]);
+    }
+    printf("\n");
+    return 0;
+}
